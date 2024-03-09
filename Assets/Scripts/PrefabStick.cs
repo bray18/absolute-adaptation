@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PrefabStick : MonoBehaviour
 {
+    /*
     private Rigidbody2D rb;
     public string prefabType = "Type1"; // Assign this in the inspector to differentiate prefab types
 
@@ -30,4 +31,5 @@ public class PrefabStick : MonoBehaviour
         }
         // Otherwise, they are equal prefabs, and you might want to handle combining them here or elsewhere
     }
+    */
 }
