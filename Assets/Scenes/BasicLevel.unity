@@ -274,6 +274,7 @@ MonoBehaviour:
   shootForce: 800
   prefabWeights: 4000000030000000060000000300000001000000
   backlogSize: 5
+  shootSound: {fileID: 8300000, guid: eff1adf6b603d8c45911ef277d6f6ba1, type: 3}
 --- !u!1 &113950314
 GameObject:
   m_ObjectHideFlags: 0

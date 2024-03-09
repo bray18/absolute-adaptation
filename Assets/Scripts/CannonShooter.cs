@@ -13,10 +13,15 @@ public class CannonShooter : MonoBehaviour
     private Vector3 previewScale = new Vector3(0.1f, 0.1f, 1f); // Scale for the preview
     public int backlogSize = 5; // Size of the backlog
 
+    // Sound
+    public AudioClip shootSound; // Assign in the Inspector
+    private AudioSource audioSource; // AudioSource component
+
     private void Start()
     {
         FillBacklog();
         UpdatePreview();
+        audioSource = GetComponent<AudioSource>(); // Get the AudioSource component
     }
 
     private void Update()
@@ -26,6 +31,7 @@ public class CannonShooter : MonoBehaviour
             ShootPrefab();
             UpdateBacklog();
             UpdatePreview();
+            PlayShootSound(); // Play shoot sound
         }
     }
 
@@ -93,5 +99,13 @@ public class CannonShooter : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0; // Ensure it's on the same plane
         return (mousePosition - Vector3.zero).normalized;
+    }
+
+    void PlayShootSound()
+    {
+        if (audioSource != null && shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound); // Play the shoot sound
+        }
     }
 }
