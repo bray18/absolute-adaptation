@@ -15,6 +15,7 @@ public class Singleton : MonoBehaviour
         } else { 
             Instance = this; 
         } 
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void StopAudio(AudioSource audioSource)
