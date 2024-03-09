@@ -13,10 +13,11 @@ public class PrefabCombiner : MonoBehaviour
         // Check if both prefabs are at the same level and not at max level
         if (prefabALevel != null && prefabBLevel != null && prefabALevel.level == prefabBLevel.level && prefabALevel.level < 7)
         {
-            // Instantiate the next level prefab
-            GameObject newPrefab = Instantiate(prefabALevel.nextLevelPrefab, prefabA.transform.position, Quaternion.identity);
+            // Calculate the midpoint between the two prefabs
+            Vector2 midpoint = (prefabA.transform.position + prefabB.transform.position) / 2;
 
-            // Optional: Adjust the position/rotation/scale of the newPrefab as needed
+            // Instantiate the next level prefab at the midpoint position
+            GameObject newPrefab = Instantiate(prefabALevel.nextLevelPrefab, midpoint, Quaternion.identity);
 
             // Destroy the old prefabs
             Destroy(prefabA);

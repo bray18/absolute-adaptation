@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class PrefabCollisionCombiner : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the collided object also has a PrefabLevel component
-        if (collision.gameObject.GetComponent<PrefabLevel>() != null)
+        // Ensure that this object is the one with the lower instance ID
+        if (gameObject.GetInstanceID() < collision.gameObject.GetInstanceID())
         {
-            // Call the CombinePrefabs method
-            PrefabCombiner.CombinePrefabs(gameObject, collision.gameObject);
+            // Check if the collided object also has a PrefabLevel component
+            PrefabLevel otherPrefabLevel = collision.gameObject.GetComponent<PrefabLevel>();
+            if (otherPrefabLevel != null)
+            {
+                // Call the CombinePrefabs method
+                PrefabCombiner.CombinePrefabs(gameObject, collision.gameObject);
+            }
         }
     }
 }
