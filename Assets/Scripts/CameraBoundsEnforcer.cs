@@ -13,31 +13,35 @@ public class CameraBoundsEnforcer : MonoBehaviour
 
     void CreateBoundaries()
     {
-        float screenAspect = 16f / 9f;
+        // Assuming a 16:9 aspect ratio
         float cameraHeight = mainCamera.orthographicSize * 2;
-        float cameraWidth = cameraHeight * screenAspect;
-        
-        // Top Boundary
-        AddBoundary("Top Boundary", new Vector2(0, mainCamera.orthographicSize), new Vector2(cameraWidth, 0.1f));
-        // Bottom Boundary
-        AddBoundary("Bottom Boundary", new Vector2(0, -mainCamera.orthographicSize), new Vector2(cameraWidth, 0.1f));
-        // Left Boundary
-        AddBoundary("Left Boundary", new Vector2(-cameraWidth / 2, 0), new Vector2(0.1f, cameraHeight));
-        // Right Boundary
-        AddBoundary("Right Boundary", new Vector2(cameraWidth / 2, 0), new Vector2(0.1f, cameraHeight));
+        float cameraWidth = cameraHeight * mainCamera.aspect;
+
+        // Create Edge Colliders for the boundaries
+        Vector2[] edgePoints;
+
+        // Top boundary
+        edgePoints = new Vector2[2] { new Vector2(-cameraWidth / 2, mainCamera.orthographicSize), new Vector2(cameraWidth / 2, mainCamera.orthographicSize) };
+        AddEdgeCollider("Top Boundary", edgePoints);
+
+        // Bottom boundary
+        edgePoints = new Vector2[2] { new Vector2(-cameraWidth / 2, -mainCamera.orthographicSize), new Vector2(cameraWidth / 2, -mainCamera.orthographicSize) };
+        AddEdgeCollider("Bottom Boundary", edgePoints);
+
+        // Left boundary
+        edgePoints = new Vector2[2] { new Vector2(-cameraWidth / 2, mainCamera.orthographicSize), new Vector2(-cameraWidth / 2, -mainCamera.orthographicSize) };
+        AddEdgeCollider("Left Boundary", edgePoints);
+
+        // Right boundary
+        edgePoints = new Vector2[2] { new Vector2(cameraWidth / 2, mainCamera.orthographicSize), new Vector2(cameraWidth / 2, -mainCamera.orthographicSize) };
+        AddEdgeCollider("Right Boundary", edgePoints);
     }
 
-    void AddBoundary(string name, Vector2 position, Vector2 size)
+    void AddEdgeCollider(string name, Vector2[] points)
     {
         GameObject boundary = new GameObject(name);
-        // Position adjustment since the camera is centered, we offset by half size accordingly for left and right
-        float adjustedPositionX = position.x + (size.x == 0.1f ? (position.x > 0 ? -size.y / 2 : size.y / 2) : 0);
-        float adjustedPositionY = position.y + (size.y == 0.1f ? (position.y > 0 ? -size.x / 2 : size.x / 2) : 0);
-        boundary.transform.position = new Vector2(adjustedPositionX, adjustedPositionY);
-        boundary.transform.localScale = new Vector3(size.x, size.y, 1);
-        BoxCollider2D collider = boundary.AddComponent<BoxCollider2D>();
-        collider.size = new Vector2(1, 1); // Collider size set to 1,1 because we're scaling the GameObject
-        collider.isTrigger = false; // Make sure it's not a trigger
-        boundary.transform.parent = this.transform; // Optionally set as a child of the camera to move with it
+        boundary.transform.parent = transform;
+        EdgeCollider2D edgeCollider = boundary.AddComponent<EdgeCollider2D>();
+        edgeCollider.points = points;
     }
 }

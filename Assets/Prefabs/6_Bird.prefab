@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 4829103849629691091}
   - component: {fileID: -6604052153299580539}
   - component: {fileID: -2448228666240565814}
+  - component: {fileID: 4981653312882019192}
   m_Layer: 0
   m_Name: 6_Bird
-  m_TagString: Untagged
+  m_TagString: Type6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,3 +190,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624616e73e5b8451d83cb0f8503d1b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4981653312882019192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598233351690912191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9599ea367a94e45d7bfb44ffd1e656ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabType: Type6
