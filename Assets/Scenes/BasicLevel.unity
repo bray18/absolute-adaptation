@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 1751479}
   - component: {fileID: 1751478}
   - component: {fileID: 1751477}
+  - component: {fileID: 1751481}
   - component: {fileID: 1751480}
   m_Layer: 0
   m_Name: Cannon
@@ -250,6 +251,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rb: {fileID: 0}
+--- !u!114 &1751481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d17965651cef4ef6a67b647654ba9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 2933946330274834552, guid: ca303bf9e97814c8487de2faf1a6d321, type: 3}
+  - {fileID: 4578791084997424245, guid: f7e896b3c59a1456fbf87ec328e24968, type: 3}
+  - {fileID: 2721243061722887582, guid: 5ed7b4b0bd634463f9e8941e1008821f, type: 3}
+  - {fileID: 395837336482067356, guid: 8fe647a5a590947cbbc8802f0e5ef588, type: 3}
+  - {fileID: 3285690710720969418, guid: df7e8d4b6e27b4ac58454088bdd59077, type: 3}
+  - {fileID: 1598233351690912191, guid: ce2295e9a34f1487cb636a37aedeeb50, type: 3}
+  - {fileID: 6570486485393452461, guid: ab69b9c9446ba42a6a2bb5179f442720, type: 3}
+  shootForce: 1000
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
