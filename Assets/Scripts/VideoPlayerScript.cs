@@ -9,15 +9,11 @@ public class VideoPlayerScript : MonoBehaviour
     
     
     // Start is called before the first frame update
-    void CheckOver(){
-        if(!GetComponent<UnityEngine.Video.VideoPlayer>().isPlaying) {
-            SceneManager.LoadScene("BasicLevel");
-        }
-    }
+    
     void Start()
     {
         GetComponent<UnityEngine.Video.VideoPlayer>().Play();
-        UnityEngine.Video.VideoPlayer.loopPointReached += CheckOver;
+        
     }
 
     // Update is called once per frame
