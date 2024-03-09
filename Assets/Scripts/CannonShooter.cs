@@ -4,38 +4,38 @@ using System.Collections.Generic;
 
 public class CannonShooter : MonoBehaviour
 {
-    public GameObject[] prefabs; // Assign this in the Inspector with your prefabs
+    public GameObject[] prefabs; // Assign prefabs in the Inspector
     public float shootForce = 1000f; // Adjust based on your needs
-
-    private Queue<GameObject> backlog = new Queue<GameObject>(); // Backlog of prefabs
-    private GameObject currentDisplay; // Currently displayed prefab as preview
+    private Queue<int> backlogIndexes = new Queue<int>(); // Stores indexes of prefabs
+    private GameObject currentPreview; // Currently displayed preview
+    private Vector3 previewScale = new Vector3(0.1f, 0.1f, 1f); // Scale for the preview
     public int backlogSize = 5; // Size of the backlog
 
     private void Start()
     {
         FillBacklog();
-        UpdateDisplay();
+        UpdatePreview();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Left mouse button
+        if (Input.GetMouseButtonDown(0)) // Left mouse button pressed
         {
             ShootPrefab();
             UpdateBacklog();
-            UpdateDisplay();
+            UpdatePreview();
         }
     }
 
     void ShootPrefab()
     {
-        if (currentDisplay != null)
+        if (currentPreview != null)
         {
-            // This time, simply enable physics and apply force to the current display, then nullify it
+            // Instantiate new object for shooting
+            GameObject toShoot = Instantiate(prefabs[backlogIndexes.Peek()], Vector3.zero, Quaternion.identity);
             Vector3 shootingDirection = CalculateShootingDirection();
-            currentDisplay.GetComponent<Rigidbody2D>().simulated = true; // Enable physics simulation for shooting
-            currentDisplay.GetComponent<Rigidbody2D>().AddForce(shootingDirection * shootForce);
-            currentDisplay = null; // Ensure we don't try to interact with this object further
+            toShoot.GetComponent<Rigidbody2D>().AddForce(shootingDirection * shootForce);
+            // No need to adjust scale here, as the object is instantiated with its original scale
         }
     }
 
@@ -43,37 +43,30 @@ public class CannonShooter : MonoBehaviour
     {
         for (int i = 0; i < backlogSize; i++)
         {
-            backlog.Enqueue(SelectPrefab());
+            backlogIndexes.Enqueue(Random.Range(0, prefabs.Length));
         }
     }
 
     void UpdateBacklog()
     {
-        // Instantiate a new object for the next shot, and enqueue it
-        if (currentDisplay != null) Destroy(currentDisplay); // Destroy the old display if it exists
-        backlog.Dequeue(); // Remove the first element, which was just shot
-        backlog.Enqueue(SelectPrefab()); // Add a new prefab to the backlog
+        backlogIndexes.Dequeue(); // Remove the first element, which was just shot
+        backlogIndexes.Enqueue(Random.Range(0, prefabs.Length)); // Add a new index to the backlog
     }
 
-    void UpdateDisplay()
+    void UpdatePreview()
     {
-        GameObject nextPrefab = backlog.Peek(); // Get the next prefab to show without removing it
-        currentDisplay = Instantiate(nextPrefab, Vector3.zero, Quaternion.identity); // Instantiate at 0,0 as preview
-        currentDisplay.GetComponent<Rigidbody2D>().simulated = false; // Stop physics simulation for the preview
-        // Do not adjust the scale here; let it remain as defined by the prefab
-    }
+        if (currentPreview != null) Destroy(currentPreview);
 
-    GameObject SelectPrefab()
-    {
-        // Simplified selection logic for demonstration; replace with your method as needed
-        return prefabs[Random.Range(0, prefabs.Length)];
+        int nextIndex = backlogIndexes.Peek(); // Get the next prefab index without removing it
+        currentPreview = Instantiate(prefabs[nextIndex], Vector3.zero, Quaternion.identity); // Instantiate at 0,0 as preview
+        currentPreview.GetComponent<Rigidbody2D>().simulated = false; // Stop physics simulation for the preview
+        currentPreview.transform.localScale = previewScale; // Apply preview scale
     }
 
     Vector3 CalculateShootingDirection()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // For 2D
-        Vector3 direction = (mousePosition - Vector3.zero).normalized;
-        return direction;
+        mousePosition.z = 0; // Ensure it's on the same plane
+        return (mousePosition - Vector3.zero).normalized;
     }
 }
