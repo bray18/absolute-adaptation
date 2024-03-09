@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5051379618944245684}
   - component: {fileID: 565566318464012140}
   - component: {fileID: -7961595594960368076}
+  - component: {fileID: 5724694687046151228}
+  - component: {fileID: 868264330755685648}
   m_Layer: 0
   m_Name: 4_Frog
   m_TagString: Untagged
@@ -76,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9186f70c4ed99448581fc4beec68df35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01cbb0abe445d4e6c820da3fbac02c31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,3 +165,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 4
   nextLevelPrefab: {fileID: 3285690710720969418, guid: df7e8d4b6e27b4ac58454088bdd59077, type: 3}
+--- !u!114 &5724694687046151228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395837336482067356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367688642f0a243018762d0a9a30aa76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &868264330755685648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395837336482067356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624616e73e5b8451d83cb0f8503d1b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
