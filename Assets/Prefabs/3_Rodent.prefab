@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1911359960745739466}
   - component: {fileID: 2726340869557596995}
   - component: {fileID: 6100740708862124241}
+  - component: {fileID: -9143222680995430854}
   m_Layer: 0
   m_Name: 3_Rodent
   m_TagString: Untagged
@@ -148,3 +149,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5.12
+--- !u!114 &-9143222680995430854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721243061722887582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580ed35f3a3a245c7bbdbc39dc78f86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 3
+  nextLevelPrefab: {fileID: 395837336482067356, guid: 8fe647a5a590947cbbc8802f0e5ef588, type: 3}

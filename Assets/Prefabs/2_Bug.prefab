@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1716016173042913677}
   - component: {fileID: 3987481433110711681}
   - component: {fileID: 3663720408066918819}
+  - component: {fileID: 4166792842730467288}
   m_Layer: 0
   m_Name: 2_Bug
   m_TagString: Untagged
@@ -148,3 +149,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5.12
+--- !u!114 &4166792842730467288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4578791084997424245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580ed35f3a3a245c7bbdbc39dc78f86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 2
+  nextLevelPrefab: {fileID: 2721243061722887582, guid: 5ed7b4b0bd634463f9e8941e1008821f, type: 3}
