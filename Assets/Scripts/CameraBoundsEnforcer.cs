@@ -2,40 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine;
-
 public class CameraBoundsEnforcer : MonoBehaviour
 {
     public Camera mainCamera;
-    private Vector2 screenBounds;
-    private float objectWidth;
-    private float objectHeight;
 
     void Start()
     {
-        // Calculate the screen bounds in world coordinates
-        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
-        objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x; // Half the width of the object
-        objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y; // Half the height of the object
-
         CreateBoundaries();
     }
 
     void CreateBoundaries()
     {
-        // Adjust these positions and sizes as necessary to fit your game's needs
-        AddBoundary("Top Boundary", new Vector2(0, screenBounds.y + objectHeight), new Vector2(screenBounds.x * 2, 0.1f));
-        AddBoundary("Bottom Boundary", new Vector2(0, -screenBounds.y - objectHeight), new Vector2(screenBounds.x * 2, 0.1f));
-        AddBoundary("Left Boundary", new Vector2(-screenBounds.x - objectWidth, 0), new Vector2(0.1f, screenBounds.y * 2));
-        AddBoundary("Right Boundary", new Vector2(screenBounds.x + objectWidth, 0), new Vector2(0.1f, screenBounds.y * 2));
+        float screenAspect = 16f / 9f;
+        float cameraHeight = mainCamera.orthographicSize * 2;
+        float cameraWidth = cameraHeight * screenAspect;
+        
+        // Top Boundary
+        AddBoundary("Top Boundary", new Vector2(0, mainCamera.orthographicSize), new Vector2(cameraWidth, 0.1f));
+        // Bottom Boundary
+        AddBoundary("Bottom Boundary", new Vector2(0, -mainCamera.orthographicSize), new Vector2(cameraWidth, 0.1f));
+        // Left Boundary
+        AddBoundary("Left Boundary", new Vector2(-cameraWidth / 2, 0), new Vector2(0.1f, cameraHeight));
+        // Right Boundary
+        AddBoundary("Right Boundary", new Vector2(cameraWidth / 2, 0), new Vector2(0.1f, cameraHeight));
     }
 
     void AddBoundary(string name, Vector2 position, Vector2 size)
     {
         GameObject boundary = new GameObject(name);
-        boundary.transform.position = position;
+        // Position adjustment since the camera is centered, we offset by half size accordingly for left and right
+        float adjustedPositionX = position.x + (size.x == 0.1f ? (position.x > 0 ? -size.y / 2 : size.y / 2) : 0);
+        float adjustedPositionY = position.y + (size.y == 0.1f ? (position.y > 0 ? -size.x / 2 : size.x / 2) : 0);
+        boundary.transform.position = new Vector2(adjustedPositionX, adjustedPositionY);
+        boundary.transform.localScale = new Vector3(size.x, size.y, 1);
         BoxCollider2D collider = boundary.AddComponent<BoxCollider2D>();
-        collider.size = size;
-        boundary.transform.parent = transform; // Optionally set as a child of a specific GameObject
+        collider.size = new Vector2(1, 1); // Collider size set to 1,1 because we're scaling the GameObject
+        collider.isTrigger = false; // Make sure it's not a trigger
+        boundary.transform.parent = this.transform; // Optionally set as a child of the camera to move with it
     }
 }
