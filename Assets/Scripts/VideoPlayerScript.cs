@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class VideoPlayerScript : MonoBehaviour
 {
-    
+    AudioSource audioSource;
     // Start is called before the first frame update
     void EndReached(UnityEngine.Video.VideoPlayer vp) {
         SceneManager.LoadScene("BasicLevel");
@@ -13,6 +13,15 @@ public class VideoPlayerScript : MonoBehaviour
     }
     void Start()
     {
+
+        audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
+        //Debug.Log(audioSource+" that's the music");
+
+        Singleton.Instance.StopAudio(audioSource);
+        //Debug.Log("Stopped audio");
+        //audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
+        //Singleton.Instance.StopAudio();
+
         GameObject camera = GameObject.Find("Main Camera");
         var videoPlayer = camera.AddComponent<UnityEngine.Video.VideoPlayer>();
         videoPlayer.url = "Assets/Videos/tomato anxiety.mp4";
@@ -23,6 +32,8 @@ public class VideoPlayerScript : MonoBehaviour
         videoPlayer.waitForFirstFrame = true;
         videoPlayer.loopPointReached += EndReached;
         videoPlayer.Play();
+
+        
     }
 
     // Update is called once per frame
