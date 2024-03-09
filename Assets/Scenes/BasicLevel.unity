@@ -271,8 +271,8 @@ MonoBehaviour:
   - {fileID: 3285690710720969418, guid: df7e8d4b6e27b4ac58454088bdd59077, type: 3}
   - {fileID: 1598233351690912191, guid: ce2295e9a34f1487cb636a37aedeeb50, type: 3}
   - {fileID: 6570486485393452461, guid: ab69b9c9446ba42a6a2bb5179f442720, type: 3}
-  shootForce: 750
-  prefabWeights: 0a000000050000000200000001000000
+  shootForce: 1000
+  prefabWeights: 2000000018000000040000000200000001000000
   backlogSize: 5
 --- !u!1 &519420028
 GameObject:
