@@ -15,6 +15,11 @@ public class PrefabCombiner : MonoBehaviour
         // Check if both prefabs have levels and Rigidbody2D components
         if (prefabALevel != null && prefabBLevel != null && rbA != null && rbB != null && prefabALevel.level == prefabBLevel.level && prefabALevel.level < 7)
         {
+            //play random sound between Pop1, Pop2, Pop3, and Pop4 that are in the scene
+            int randomSound = Random.Range(1, 5);
+            AudioSource audioSource = GameObject.Find("Pop" + randomSound).GetComponent<AudioSource>();
+            audioSource.Play();
+
             // Calculate the midpoint between the two prefabs
             Vector2 midpoint = (prefabA.transform.position + prefabB.transform.position) / 2;
 
