@@ -7,7 +7,7 @@ public class LevelSelectManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public void StartLevel1() {
-        SceneManager.LoadScene("BasicLevel");
+        SceneManager.LoadScene("Cutscene1");
     }
     void Start()
     {
