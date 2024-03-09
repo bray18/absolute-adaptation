@@ -11,6 +11,7 @@ TagManager:
   - Type5
   - Type6
   - Type7
+  - NoEdgeGravity
   layers:
   - Default
   - TransparentFX

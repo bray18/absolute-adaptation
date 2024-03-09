@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 1751480}
   m_Layer: 0
   m_Name: Cannon
-  m_TagString: Untagged
+  m_TagString: NoEdgeGravity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -389,6 +389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1810473910}
   - component: {fileID: 1810473911}
+  - component: {fileID: 1810473912}
   m_Layer: 0
   m_Name: LEVELBOUNDS
   m_TagString: Untagged
@@ -424,6 +425,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
+--- !u!114 &1810473912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810473909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47971ef4cb211485db355be8581dd218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityStrength: 12
+  exclusionTag: NoEdgeGravity
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
