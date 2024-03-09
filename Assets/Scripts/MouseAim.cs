@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallShoot : MonoBehaviour
+public class MouseAim : MonoBehaviour
 {
     //this sscript is attached to the ball prefab to shoot the ball.
     //It is controlled by the user's mouse input, where the user points to a location and clicks to shoot the ball in that direction.
@@ -33,11 +33,10 @@ public class BallShoot : MonoBehaviour
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        //shoot ball
+        //shoot ball from different file
         if (Input.GetMouseButtonDown(0))
         {
-            rb.velocity = transform.right * speed;
+            //shoot the ball
         }
-        
     }
 }
