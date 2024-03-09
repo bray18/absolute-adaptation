@@ -8,6 +8,7 @@ public class VideoPlayerScript : MonoBehaviour
     AudioSource audioSource;
     // Start is called before the first frame update
     void EndReached(UnityEngine.Video.VideoPlayer vp) {
+        Debug.Log("End reached");
         SceneManager.LoadScene("BasicLevel");
     
     }
@@ -24,7 +25,7 @@ public class VideoPlayerScript : MonoBehaviour
 
         GameObject camera = GameObject.Find("Main Camera");
         var videoPlayer = camera.AddComponent<UnityEngine.Video.VideoPlayer>();
-        videoPlayer.url = "Assets/Videos/tomato anxiety.mp4";
+        videoPlayer.clip = tomato anxiety;
 
         // By default, VideoPlayers added to a camera will use the far plane.
         // Let's target the near plane instead.
