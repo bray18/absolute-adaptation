@@ -6,33 +6,33 @@ public class CannonShooter : MonoBehaviour
 {
     public GameObject[] prefabs; // Assign prefabs in the Inspector
     public float shootForce = 1000f; // Adjust based on your needs
+    public ShotLimit shotLimit; // Reference to the ShotLimit script
+
     private Queue<int> backlogIndexes = new Queue<int>(); // Stores indexes of prefabs
     public int[] prefabWeights; // Assign weights in the Inspector
-
     private GameObject currentPreview; // Currently displayed preview
     private Vector3 previewScale = new Vector3(0.1f, 0.1f, 1f); // Scale for the preview
     public int backlogSize = 5; // Size of the backlog
-
-    // Sound
     public AudioClip shootSound; // Assign in the Inspector
     private AudioSource audioSource; // AudioSource component
 
     private void Start()
     {
+        if (shotLimit == null)
+        {
+            Debug.LogError("ShotLimit reference not set in the Inspector");
+        }
+
         FillBacklog();
         UpdatePreview();
         audioSource = GetComponent<AudioSource>(); // Get the AudioSource component
-        CombinationTracker.Instance.ResetCombinations(); // Reset the combination counts
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Left mouse button pressed
+        if (Input.GetMouseButtonDown(0) && shotLimit) // Left mouse button pressed and shotLimit is assigned
         {
             ShootPrefab();
-            UpdateBacklog();
-            UpdatePreview();
-            PlayShootSound(); // Play shoot sound
         }
     }
 
@@ -40,12 +40,13 @@ public class CannonShooter : MonoBehaviour
     {
         if (currentPreview != null)
         {
-            // Instantiate new object for shooting
-            GameObject toShoot = Instantiate(prefabs[backlogIndexes.Peek()], new Vector3(0, 0, 1), Quaternion.identity); // Set Z to 1
+            GameObject toShoot = Instantiate(prefabs[backlogIndexes.Peek()], new Vector3(0, 0, 1), Quaternion.identity);
             Vector3 shootingDirection = CalculateShootingDirection();
             toShoot.GetComponent<Rigidbody2D>().AddForce(shootingDirection * shootForce);
-            // No need to adjust scale here, as the object is instantiated with its original scale
-            ScoreManager.Instance.DeductPointsPerClick(); // Deduct points for shooting
+            shotLimit.DecreaseShot(); // Correctly access DecreaseShot method
+            UpdateBacklog();
+            UpdatePreview();
+            PlayShootSound();
         }
     }
 

@@ -6,6 +6,7 @@ using UnityEngine.Video; // Ensure this namespace is included for video function
 
 public class VideoPlayerScript : MonoBehaviour
 {
+    public string sceneName = "Objective";
     public VideoClip videoClip; // Public variable for the video clip
     AudioSource audioSource;
     
@@ -13,7 +14,7 @@ public class VideoPlayerScript : MonoBehaviour
     // This method is called when the video reaches its end
     void EndReached(VideoPlayer vp) {
         //GameObject.Destroy(vp);
-        SceneManager.LoadScene("Objective"); // Load the scene named "BasicLevel"
+        SceneManager.LoadScene(sceneName); // Load the scene named "BasicLevel"
         GameObject.Destroy(GameObject.Find("Canvas"));
 
 

@@ -10,25 +10,25 @@ public class GameOverZone : MonoBehaviour
     private Dictionary<GameObject, float> objectsInZone = new Dictionary<GameObject, float>();
 
     void Update()
-{
-    Collider2D[] objects = Physics2D.OverlapCircleAll(Vector2.zero, radius);
-    //Debug.Log("Objects detected: " + objects.Length); // Debug how many objects are detected
-
-    foreach (Collider2D obj in objects)
     {
-        if (IsTargetObject(obj.gameObject))
-        {
-            //Debug.Log("Target object detected: " + obj.gameObject.name); // Confirm detection of target objects
+        Collider2D[] objects = Physics2D.OverlapCircleAll(Vector2.zero, radius);
+        //Debug.Log("Objects detected: " + objects.Length); // Debug how many objects are detected
 
-            if (!objectsInZone.ContainsKey(obj.gameObject))
+        foreach (Collider2D obj in objects)
+        {
+            if (IsTargetObject(obj.gameObject))
             {
-                objectsInZone[obj.gameObject] = Time.time;
-            }
-            else if (Time.time - objectsInZone[obj.gameObject] > timeToGameOver)
-            {
-                //Debug.Log("Game Over triggered by: " + obj.gameObject.name); // Confirm game over trigger
-                SceneManager.LoadScene("GameOver");
-            }
+                //Debug.Log("Target object detected: " + obj.gameObject.name); // Confirm detection of target objects
+
+                if (!objectsInZone.ContainsKey(obj.gameObject))
+                {
+                    objectsInZone[obj.gameObject] = Time.time;
+                }
+                else if (Time.time - objectsInZone[obj.gameObject] > timeToGameOver)
+                {
+                    //Debug.Log("Game Over triggered by: " + obj.gameObject.name); // Confirm game over trigger
+                    SceneManager.LoadScene("GameOver");
+                }
             }
         }
 
@@ -45,6 +45,7 @@ public class GameOverZone : MonoBehaviour
         {
             objectsInZone.Remove(obj);
         }
+
     }
 
     private bool IsTargetObject(GameObject obj)
