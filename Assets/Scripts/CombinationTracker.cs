@@ -3,26 +3,42 @@ using System.Collections.Generic;
 
 public class CombinationTracker : MonoBehaviour
 {
-    // Singleton instance for easy access
-    public static CombinationTracker Instance { get; private set; }
+    private static CombinationTracker _instance;
+    public static CombinationTracker Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                // Find existing instance in the scene
+                _instance = FindObjectOfType<CombinationTracker>();
+                if (_instance == null)
+                {
+                    // Create new instance if one doesn't already exist
+                    var singletonObject = new GameObject("CombinationTracker");
+                    _instance = singletonObject.AddComponent<CombinationTracker>();
+                }
+            }
+            return _instance;
+        }
+    }
 
-    // Dictionary to track the number of combinations for each level
     private Dictionary<int, int> levelCombinations = new Dictionary<int, int>();
 
+    // Ensure the instance is unique (optional)
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance == null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            _instance = this;
         }
-        else
+        else if (_instance != this)
         {
+            Debug.LogWarning("Another instance of CombinationTracker was found! Destroying...");
             Destroy(gameObject);
         }
     }
 
-    // Increment the combination count for a given level
     public void IncrementCombinationCount(int level)
     {
         if (levelCombinations.ContainsKey(level))
@@ -34,35 +50,26 @@ public class CombinationTracker : MonoBehaviour
             levelCombinations[level] = 1;
         }
 
-        // Check for specific game events
+        // Assuming ScoreManager follows a similar singleton pattern
+        ScoreManager.Instance.AddScoreForLevelCombination(level);
         CheckForGameEvents(level);
     }
 
-    // Reset the combination counts
     public void ResetCombinations()
     {
         levelCombinations.Clear();
     }
 
-    // Check for specific game events based on the combination level
     private void CheckForGameEvents(int level)
     {
-        // Example: End the level when a level 5 combination is achieved
-        if (level == 5 && levelCombinations[level] == 1) // Adjust based on your specific needs
+        if (level == 5 && levelCombinations[level] == 1)
         {
-            // End the level or trigger any specific event
             Debug.Log("Level 5 combination achieved! Triggering event...");
-            // Add your event triggering code here
         }
     }
 
-    // Optional: Method to get the combination count for a specific level
     public int GetCombinationCount(int level)
     {
-        if (levelCombinations.ContainsKey(level))
-        {
-            return levelCombinations[level];
-        }
-        return 0;
+        return levelCombinations.ContainsKey(level) ? levelCombinations[level] : 0;
     }
 }

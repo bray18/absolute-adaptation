@@ -45,6 +45,7 @@ public class CannonShooter : MonoBehaviour
             Vector3 shootingDirection = CalculateShootingDirection();
             toShoot.GetComponent<Rigidbody2D>().AddForce(shootingDirection * shootForce);
             // No need to adjust scale here, as the object is instantiated with its original scale
+            ScoreManager.Instance.DeductPointsPerClick(); // Deduct points for shooting
         }
     }
 
