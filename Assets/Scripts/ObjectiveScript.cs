@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ObjectiveScript : MonoBehaviour
 {
+    public string sceneName = "Menu";
+
     public void GoToGame()
     {
-        SceneManager.LoadScene("BasicLevel");
+        SceneManager.LoadScene(sceneName);
     }
     // Start is called before the first frame update
     void Start()
