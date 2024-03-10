@@ -74,3 +74,4 @@ crashlytics-build.properties
 #Mac nightmare machine
 *.DS_Store
 Assets/Music/Boss_Remix.wav
+Assets/Resources/Music/Level7.wav
