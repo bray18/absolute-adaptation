@@ -7,6 +7,7 @@ public class CannonShooter : MonoBehaviour
     public GameObject[] prefabs; // Assign prefabs in the Inspector
     public float shootForce = 1000f; // Adjust based on your needs
     public ShotLimit shotLimit; // Reference to the ShotLimit script
+    public bool enforceShotLimit = true; // Checkbox to control shot limiting
 
     private Queue<int> backlogIndexes = new Queue<int>(); // Stores indexes of prefabs
     public int[] prefabWeights; // Assign weights in the Inspector
@@ -18,9 +19,9 @@ public class CannonShooter : MonoBehaviour
 
     private void Start()
     {
-        if (shotLimit == null)
+        if (shotLimit == null && enforceShotLimit)
         {
-            Debug.LogError("ShotLimit reference not set in the Inspector");
+            Debug.LogError("ShotLimit reference not set in the Inspector.");
         }
 
         FillBacklog();
@@ -30,7 +31,7 @@ public class CannonShooter : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && shotLimit) // Left mouse button pressed and shotLimit is assigned
+        if (Input.GetMouseButtonDown(0)) // Left mouse button pressed
         {
             ShootPrefab();
         }
@@ -43,7 +44,13 @@ public class CannonShooter : MonoBehaviour
             GameObject toShoot = Instantiate(prefabs[backlogIndexes.Peek()], new Vector3(0, 0, 1), Quaternion.identity);
             Vector3 shootingDirection = CalculateShootingDirection();
             toShoot.GetComponent<Rigidbody2D>().AddForce(shootingDirection * shootForce);
-            shotLimit.DecreaseShot(); // Correctly access DecreaseShot method
+            
+            // Check if shot limiting is enforced before decreasing shots
+            if (enforceShotLimit && shotLimit != null)
+            {
+                shotLimit.DecreaseShot(); // Correctly access DecreaseShot method
+            }
+            
             UpdateBacklog();
             UpdatePreview();
             PlayShootSound();
