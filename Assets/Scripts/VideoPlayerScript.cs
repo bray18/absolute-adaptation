@@ -14,7 +14,9 @@ public class VideoPlayerScript : MonoBehaviour
     void EndReached(VideoPlayer vp) {
         //GameObject.Destroy(vp);
         SceneManager.LoadScene("BasicLevel"); // Load the scene named "BasicLevel"
-       
+        GameObject.Destroy(GameObject.Find("Canvas"));
+
+
     }
 
     void Start()
@@ -56,7 +58,7 @@ public class VideoPlayerScript : MonoBehaviour
         videoPlayer.waitForFirstFrame = true; // Wait for the first frame before starting playback
         videoPlayer.loopPointReached += EndReached; // Subscribe to the loopPointReached event
         videoPlayer.Play(); // Start playing the video
-        
+        videoPlayer.gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 
     // Update is called once per frame
