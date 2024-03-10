@@ -8,7 +8,7 @@ public class Singleton : MonoBehaviour
     private int currentTrackNumber = -1;
 
     private AudioSource audioSource; // Integrated AudioSource to control music playback
-    private string[] tracks = new string[11] { "Music/Menu", "Music/Level1", "Music/Level2", "Music/Level3", "Music/Level4", "Music/Level5", "Music/Level6", "Music/Level7", "Music/Menu", "Music/Menu", "Music/Menu" };
+    private string[] tracks = new string[11] { "Music/Menu", "Music/Level1", "Music/Level2", "Music/Level3", "Music/Level4", "Music/Level5", "Music/Level6", "Music/Level7", "Music/Loser", "Music/Menu", "Music/Menu" };
 
     void Start() {
   
