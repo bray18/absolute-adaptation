@@ -43,7 +43,7 @@ public class LevelSelectManager : MonoBehaviour
         if(!GameObject.FindWithTag("Music").GetComponent<AudioSource>().isPlaying)
         {
             audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
-            audioSource.Play();
+            Singleton.Instance.GoAudio(audioSource);
         }
 
     }
