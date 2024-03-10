@@ -41,9 +41,9 @@ public class WinCondition : MonoBehaviour
         string sceneToSwitchTo = ""; // Initialize with an empty string
         // Example logic based on the current scene or other conditions
         string currentSceneName = SceneManager.GetActiveScene().name;
-        
+
         // Customize this logic based on your game's requirements
-        
+        /*
          if (currentSceneName == "Level7")
         {
             sceneToSwitchTo = "Win7";
@@ -57,7 +57,8 @@ public class WinCondition : MonoBehaviour
         {
             sceneToSwitchTo = "Menu"; // A default scene if none of the conditions match
         }
-
+        */
+        sceneToSwitchTo = "Win7";
         // Assuming prefabCollisionCombiner is correctly assigned in the inspector
         if (prefabCollisionCombiner != null)
         {
