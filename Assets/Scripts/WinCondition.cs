@@ -65,7 +65,7 @@ public class WinCondition : MonoBehaviour
         }
         else
         {
-            Debug.LogError("PrefabCollisionCombiner reference not set in WinCondition.");
+            //Debug.LogError("PrefabCollisionCombiner reference not set in WinCondition.");
         }
     }
 }

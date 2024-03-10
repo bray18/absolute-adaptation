@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
             //Debug.Log("audiosource defined");
 
-            Singleton.Instance.StopAudio(audioSource);
+            Singleton.Instance.StopAudio();
             GameObject.Destroy(GameObject.FindWithTag("Music2"));
 
         }

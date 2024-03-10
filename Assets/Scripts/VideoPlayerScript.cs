@@ -32,7 +32,7 @@ public class VideoPlayerScript : MonoBehaviour
             //Debug.Log("audiosource defined");
 
             // Stop the audio using the Singleton pattern
-            Singleton.Instance.StopAudio(audioSource);
+            Singleton.Instance.StopAudio();
             //GameObject.Destroy(GameObject.FindWithTag("Music"));
             //audioSource = null;
             
