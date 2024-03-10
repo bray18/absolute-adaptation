@@ -15,16 +15,7 @@ public class WinCondition : MonoBehaviour
         // Check the current combination count for the winLevel
         if (CombinationTracker.Instance.GetCombinationCount(winLevel) >= winCombinationCount)
         {
-            if (winLevel == 7)
-            {
-                // For level 7, dynamically decide the scene to switch to before starting the coroutine
-                DecideAndSetSceneToSwitchForLevel7();
-            }
-            else
-            {
-                // Win condition met for levels other than 7, start the coroutine to load the win scene after a delay
-                StartCoroutine(WaitAndLoadScene(winSceneName));
-            }
+            StartCoroutine(WaitAndLoadScene(winSceneName));
         }
     }
 
@@ -35,39 +26,4 @@ public class WinCondition : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    // Method to dynamically decide and set the scene to switch to for level 7
-    private void DecideAndSetSceneToSwitchForLevel7()
-    {
-        string sceneToSwitchTo = ""; // Initialize with an empty string
-        // Example logic based on the current scene or other conditions
-        string currentSceneName = SceneManager.GetActiveScene().name;
-
-        // Customize this logic based on your game's requirements
-        /*
-         if (currentSceneName == "Level7")
-        {
-            sceneToSwitchTo = "Win7";
-        }
-        else if (currentSceneName == "Level6")
-        {
-            sceneToSwitchTo = "Win6";
-        }
-        // Add more conditions as needed
-        else
-        {
-            sceneToSwitchTo = "Menu"; // A default scene if none of the conditions match
-        }
-        */
-        sceneToSwitchTo = "Win7";
-        // Assuming prefabCollisionCombiner is correctly assigned in the inspector
-        if (prefabCollisionCombiner != null)
-        {
-            prefabCollisionCombiner.SetSceneToSwitchTo(sceneToSwitchTo);
-            StartCoroutine(WaitAndLoadScene(sceneToSwitchTo)); // Use the dynamically set scene
-        }
-        else
-        {
-            //Debug.LogError("PrefabCollisionCombiner reference not set in WinCondition.");
-        }
-    }
 }
