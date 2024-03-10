@@ -10,6 +10,24 @@ public class LevelSelectManager : MonoBehaviour
     public void StartLevel1() {
         SceneManager.LoadScene("Cutscene1");
     }
+    public void StartLevel2() {
+        SceneManager.LoadScene("Cutscene2");
+    }
+    public void StartLevel3() {
+        SceneManager.LoadScene("Cutscene3");
+    }
+    public void StartLevel4() {
+        SceneManager.LoadScene("Cutscene4");
+    }
+    public void StartLevel5() {
+        SceneManager.LoadScene("Cutscene5");
+    }
+    public void StartLevel6() {
+        SceneManager.LoadScene("Cutscene6");
+    }
+    public void StartLevel7() {
+        SceneManager.LoadScene("Cutscene7");
+    }
     
     void Start()
     {

@@ -29,4 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 787fbc901ad864456adf500e1943dca3
+  - enabled: 1
+    path: Assets/Scenes/Win1.unity
+    guid: f50ce76cdc9264945893d36faf6f2325
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 7e277fad2ff044f0bba3f0307bcff91d
+  - enabled: 1
+    path: Assets/Scenes/Cutscene2.unity
+    guid: 463fc4158b62f472882a2a86a030921c
+  - enabled: 1
+    path: Assets/Scenes/Objective2.unity
+    guid: 026c181cb278a416782d3388d4891fab
   m_configObjects: {}
