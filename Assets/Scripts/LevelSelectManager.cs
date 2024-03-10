@@ -69,6 +69,17 @@ public class LevelSelectManager : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+
+    public void Endless()
+    {
+        SceneManager.LoadScene("Endless");
+    }
+
+    public void TimeAttack()
+    {
+        SceneManager.LoadScene("TimeAttack");
+    }
+
     // Update is not modified but included for completeness
     void Update()
     {

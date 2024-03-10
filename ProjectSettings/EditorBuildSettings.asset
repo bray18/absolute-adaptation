@@ -104,4 +104,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Win7.unity
     guid: 28fc8095d1827417e883af5f76d4b3e4
+  - enabled: 1
+    path: Assets/Scenes/TimeAttack.unity
+    guid: 31349a758fd5846af8db2ae8e95eb9c8
+  - enabled: 1
+    path: Assets/Scenes/Endless.unity
+    guid: 38ad58e2abd644b76be78d3866117ba2
   m_configObjects: {}
