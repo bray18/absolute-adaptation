@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PrefabCombiner : MonoBehaviour
 {
+    // Inside PrefabCollisionCombiner class
+
     // Method to combine two prefabs
     public static void CombinePrefabs(GameObject prefabA, GameObject prefabB)
     {

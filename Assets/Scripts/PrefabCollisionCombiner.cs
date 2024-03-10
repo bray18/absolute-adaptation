@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PrefabCollisionCombiner : MonoBehaviour
 {
-    private string sceneToSwitchTo = "Win6"; // Name of the scene to switch to
+    private string sceneToSwitchTo = "Win6"; // Default scene to switch to
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -30,11 +30,14 @@ public class PrefabCollisionCombiner : MonoBehaviour
 
     private IEnumerator HandleLevel7Touch()
     {
-        // Optionally wait for a short duration before switching scenes
-        yield return new WaitForSeconds(1.0f); // Waits for 1 second before executing the next line
-
+        // wait for 1 second
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneToSwitchTo);
+    }
 
-        // No need for a return statement after a yield in a coroutine
+    // Public method to set the scene to switch to
+    public void SetSceneToSwitchTo(string newSceneName)
+    {
+        sceneToSwitchTo = newSceneName;
     }
 }
