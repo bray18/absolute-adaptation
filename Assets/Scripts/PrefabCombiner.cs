@@ -36,6 +36,9 @@ public class PrefabCombiner : MonoBehaviour
                 newPrefabRb.velocity = averageVelocity;
             }
 
+            // After successfully creating a new prefab:
+            CombinationTracker.Instance.IncrementCombinationCount(prefabALevel.level);
+
             // Destroy the old prefabs
             Destroy(prefabA);
             Destroy(prefabB);
