@@ -6,6 +6,8 @@ public class Singleton : MonoBehaviour
 {
     public static Singleton Instance { get; private set; }
 
+    //ublic bool previousWasMenu = false;
+
     private void Awake() 
     { 
         // If there is an instance, and it's not me, delete myself.
@@ -20,11 +22,27 @@ public class Singleton : MonoBehaviour
 
     public void StopAudio(AudioSource audioSource)
     {
-        audioSource.Pause();
+        Debug.Log("In singleton stopaudio");
+        audioSource.Stop();
     }
     public void GoAudio(AudioSource audioSource)
     {
         audioSource.Play();
     }
-
+    /*
+    public void PreviousScene()
+    {
+        if(gameObject.scene.name == "Menu")
+        {
+            previousWasMenu = true;
+        } else
+        {
+            previousWasMenu= false;
+        }
+    }
+    public bool GetPreviousScene()
+    {
+        return previousWasMenu;
+    }
+    */
 }

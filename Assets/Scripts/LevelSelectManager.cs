@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelSelectManager : MonoBehaviour
 {
     AudioSource audioSource;
+    AudioSource audioSource2;
     // Start is called before the first frame update
     public void StartLevel1() {
         SceneManager.LoadScene("Cutscene1");
@@ -49,6 +50,19 @@ public class LevelSelectManager : MonoBehaviour
             
 
         }*/
+        if(Singleton.Instance.GetPreviousScene() == false)
+        {
+            audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
+            Singleton.Instance.GoAudio(audioSource);
+            if(GameObject.FindWithTag("Music2")!=null)
+            {
+                Debug.Log("Music 2 was not null");
+                audioSource2 = GameObject.FindWithTag("Music2").GetComponent<AudioSource>();
+                Singleton.Instance.StopAudio(audioSource2);
+            }
+        }
+        Singleton.Instance.PreviousScene();
+        /*
         if (GameObject.FindWithTag("Music2") != null)
         {
             if(GameObject.FindWithTag("Music2").GetComponent<AudioSource>().isPlaying)
@@ -63,6 +77,7 @@ public class LevelSelectManager : MonoBehaviour
             audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
             Singleton.Instance.GoAudio(audioSource);
         }
+        */
 
     }
 
