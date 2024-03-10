@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Objective1
-  videoClip: {fileID: 32900000, guid: caff677d0d3e1614a98da157f4b088ee, type: 3}
+  videoClip: {fileID: 32900000, guid: 3899d4b31da294470946acb5967c9f02, type: 3}
 --- !u!114 &619548257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Objective7
-  videoClip: {fileID: 32900000, guid: caff677d0d3e1614a98da157f4b088ee, type: 3}
+  videoClip: {fileID: 32900000, guid: 3899d4b31da294470946acb5967c9f02, type: 3}
 --- !u!114 &1588523671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,7 +748,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862717872}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: caff677d0d3e1614a98da157f4b088ee, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 3899d4b31da294470946acb5967c9f02, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 619548253}
