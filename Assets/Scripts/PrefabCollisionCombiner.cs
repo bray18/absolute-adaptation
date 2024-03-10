@@ -5,10 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PrefabCollisionCombiner : MonoBehaviour
 {
-    // Public fields to set from the Unity Editor
-    public GameObject glitchEffectPrefab; // Drag your glitch effect prefab here
-    public bool enableSceneSwitch = false; // Check this to enable scene switching
-    public string sceneToSwitchTo; // Name of the scene to switch to
+    private string sceneToSwitchTo = "Win6"; // Name of the scene to switch to
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -33,16 +30,11 @@ public class PrefabCollisionCombiner : MonoBehaviour
 
     private IEnumerator HandleLevel7Touch()
     {
-        if (glitchEffectPrefab != null)
-        {
-            // Activate the glitch effect
-            StartGlitch();
-        }
+        // Optionally wait for a short duration before switching scenes
+        yield return new WaitForSeconds(1.0f); // Waits for 1 second before executing the next line
 
-        // After the glitch effect, check if scene switching is enabled
-        if (enableSceneSwitch)
-        {
-            SceneManager.LoadScene(sceneToSwitchTo);
-        }
+        SceneManager.LoadScene(sceneToSwitchTo);
+
+        // No need for a return statement after a yield in a coroutine
     }
 }
