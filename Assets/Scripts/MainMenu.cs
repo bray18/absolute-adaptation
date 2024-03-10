@@ -13,6 +13,14 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void ViewCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
     // Start is called before the first frame update
     void Start()
     {
