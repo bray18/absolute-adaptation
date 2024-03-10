@@ -83,4 +83,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscene6.unity
     guid: 32adb5e10c74b4df8bed6758212ba897
+  - enabled: 1
+    path: Assets/Scenes/Objective6.unity
+    guid: e1abd94d33948424d81ff1cee9ddd2fe
+  - enabled: 1
+    path: Assets/Scenes/Level6.unity
+    guid: bc97aacd66d3141f3bb5fc18c558f775
   m_configObjects: {}
