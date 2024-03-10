@@ -37,7 +37,7 @@ public class LevelSelectManager : MonoBehaviour
         // Adjust the music for the level
         AudioSource audioSource = Singleton.Instance.gameObject.GetComponent<AudioSource>();
         //Singleton.Instance.SetMusicTrack(levelNumber); // Assumes level number matches track number
-        Singleton.Instance.GoAudio(levelNumber); // Play new track
+        //Singleton.Instance.GoAudio(levelNumber); // Play new track
 
         // Load the cutscene
         SceneManager.LoadScene(cutsceneSceneName);

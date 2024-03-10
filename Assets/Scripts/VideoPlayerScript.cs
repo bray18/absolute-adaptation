@@ -14,6 +14,7 @@ public class VideoPlayerScript : MonoBehaviour
     // This method is called when the video reaches its end
     void EndReached(VideoPlayer vp) {
         //GameObject.Destroy(vp);
+        Debug.Log("LOADING SCENE");
         SceneManager.LoadScene(sceneName); // Load the scene named "BasicLevel"
         GameObject.Destroy(GameObject.Find("Canvas"));
 
@@ -24,7 +25,7 @@ public class VideoPlayerScript : MonoBehaviour
     {
 
         //Debug.Log("in start");
-        if (GameObject.FindWithTag("Music").GetComponent<AudioSource>().isPlaying)
+        /*if (GameObject.FindWithTag("Music").GetComponent<AudioSource>().isPlaying)
         {
             audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
             
@@ -36,7 +37,7 @@ public class VideoPlayerScript : MonoBehaviour
             //GameObject.Destroy(GameObject.FindWithTag("Music"));
             //audioSource = null;
             
-        }
+        }*/
 
         
         

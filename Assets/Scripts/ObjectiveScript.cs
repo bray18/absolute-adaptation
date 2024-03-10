@@ -10,6 +10,7 @@ public class ObjectiveScript : MonoBehaviour
 
     public void GoToGame()
     {
+        Debug.Log("I AM NOW LOADING THESCENE IN GOTOGAME called.");
         SceneManager.LoadScene(sceneName);
     }
     // Start is called before the first frame update
