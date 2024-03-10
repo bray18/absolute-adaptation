@@ -22,6 +22,7 @@ public class CannonShooter : MonoBehaviour
         FillBacklog();
         UpdatePreview();
         audioSource = GetComponent<AudioSource>(); // Get the AudioSource component
+        CombinationTracker.Instance.ResetCombinations(); // Reset the combination counts
     }
 
     private void Update()

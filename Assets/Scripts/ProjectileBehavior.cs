@@ -10,6 +10,7 @@ public class ProjectileBehavior : MonoBehaviour
     void Start()
     {
         // Start the countdown to being affected by gravity
+        CombinationTracker.Instance.ResetCombinations();
         StartCoroutine(BecomeAffectedByGravityAfterDelay());
     }
 
