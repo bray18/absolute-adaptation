@@ -274,7 +274,7 @@ MonoBehaviour:
   shootForce: 800
   shotLimit: {fileID: 0}
   enforceShotLimit: 0
-  prefabWeights: 6000000030000000140000000600000001000000e8030000
+  prefabWeights: 6000000030000000140000000600000001000000
   backlogSize: 5
   shootSound: {fileID: 8300000, guid: eff1adf6b603d8c45911ef277d6f6ba1, type: 3}
 --- !u!1 &113950314
@@ -1554,7 +1554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winLevel: 6
-  winCombinationCount: 1
+  winCombinationCount: 2
   winSceneName: Win6
   winDelay: 1
   prefabCollisionCombiner: {fileID: 0}
