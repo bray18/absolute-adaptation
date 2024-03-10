@@ -23,16 +23,17 @@ public class VideoPlayerScript : MonoBehaviour
     {
 
         //Debug.Log("in start");
-        if (GameObject.FindWithTag("Music") != null)
+        if (GameObject.FindWithTag("Music").GetComponent<AudioSource>().isPlaying)
         {
             audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
             
             //audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
-            Debug.Log("audiosource defined");
+            //Debug.Log("audiosource defined");
 
             // Stop the audio using the Singleton pattern
             Singleton.Instance.StopAudio(audioSource);
-            GameObject.Destroy(GameObject.FindWithTag("Music"));
+            //GameObject.Destroy(GameObject.FindWithTag("Music"));
+            //audioSource = null;
             
         }
 

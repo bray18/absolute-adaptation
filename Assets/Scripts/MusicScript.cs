@@ -13,6 +13,7 @@ public class MusicScript : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        
         //var audioPlayer = findObjectWithTag("Music").GetComponent<AudioSource>();
 
     }

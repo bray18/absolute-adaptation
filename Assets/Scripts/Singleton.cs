@@ -20,7 +20,11 @@ public class Singleton : MonoBehaviour
 
     public void StopAudio(AudioSource audioSource)
     {
-        audioSource.Stop();
+        audioSource.Pause();
+    }
+    public void GoAudio(AudioSource audioSource)
+    {
+        audioSource.Play();
     }
 
 }
