@@ -68,4 +68,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Win4.unity
     guid: b63de0872183343349cbdbc7b62b844e
+  - enabled: 1
+    path: Assets/Scenes/Cutscene5.unity
+    guid: c74f2cf36c1ce4045a60fc6ad6e6fa2d
+  - enabled: 1
+    path: Assets/Scenes/Objective5.unity
+    guid: 1c82ce44f3eea4c3c8e41647d0426ce9
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: dddc2e7947ec048f680b8a58d28e6d54
+  - enabled: 1
+    path: Assets/Scenes/Win5.unity
+    guid: a024f27360cba41848274cb65a2576d8
+  - enabled: 1
+    path: Assets/Scenes/Cutscene6.unity
+    guid: 32adb5e10c74b4df8bed6758212ba897
   m_configObjects: {}

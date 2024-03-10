@@ -273,8 +273,8 @@ MonoBehaviour:
   - {fileID: 6570486485393452461, guid: ab69b9c9446ba42a6a2bb5179f442720, type: 3}
   shootForce: 800
   shotLimit: {fileID: 0}
-  enforceShotLimit: 1
-  prefabWeights: 3200000019000000050000000200000001000000
+  enforceShotLimit: 0
+  prefabWeights: 32000000190000000a0000000500000001000000
   backlogSize: 5
   shootSound: {fileID: 8300000, guid: eff1adf6b603d8c45911ef277d6f6ba1, type: 3}
 --- !u!1 &113950314
@@ -479,64 +479,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &432186473
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 432186475}
-  - component: {fileID: 432186474}
-  - component: {fileID: 432186476}
-  m_Layer: 0
-  m_Name: Score
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &432186474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432186473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4afe03fbe31af4951a251a5b916b5e15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 584605845}
---- !u!4 &432186475
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432186473}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.067426, y: 0.21525721, z: -0.056262}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &432186476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432186473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82695e9edabd84c0eba7d9ded46aebb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &446036698
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +710,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1000
-  m_Sprite: {fileID: 21300000, guid: 599adb4b0523645408433a83fa9f019a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 463e23bdcb412854984d37e5d30e6d33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -851,7 +793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Points
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1513,10 +1455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33825da656c8d4c3aa4a1b208b5eeade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winLevel: 0
-  winCombinationCount: 0
-  winSceneName: 
-  winDelay: 0
+  winLevel: 5
+  winCombinationCount: 1
+  winSceneName: Win5
+  winDelay: 1
 --- !u!1 &1915813305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,7 +1616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2847e672bf8b54cb18d55aee216d5ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTime: 60
+  countdownTime: 20
   countdownText: {fileID: 2027553665}
   alarmSound: {fileID: 670006382}
   warningTime: 10
@@ -1961,7 +1903,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 2008376912}
-  - {fileID: 432186475}
   - {fileID: 1751479}
   - {fileID: 302798128}
   - {fileID: 1810473910}
