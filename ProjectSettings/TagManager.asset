@@ -13,6 +13,7 @@ TagManager:
   - Type7
   - NoEdgeGravity
   - Music
+  - Music2
   layers:
   - Default
   - TransparentFX

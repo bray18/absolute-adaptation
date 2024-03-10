@@ -1,21 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class ObjectiveScript : MonoBehaviour
+public class MusicScript2 : MonoBehaviour
 {
-    public string sceneName = "Menu";
-
-
-    public void GoToGame()
-    {
-        SceneManager.LoadScene(sceneName);
-    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
