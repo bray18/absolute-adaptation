@@ -13,7 +13,7 @@ public class VideoPlayerScript : MonoBehaviour
     // This method is called when the video reaches its end
     void EndReached(VideoPlayer vp) {
         //GameObject.Destroy(vp);
-        SceneManager.LoadScene("BasicLevel"); // Load the scene named "BasicLevel"
+        SceneManager.LoadScene("Objective"); // Load the scene named "BasicLevel"
         GameObject.Destroy(GameObject.Find("Canvas"));
 
 

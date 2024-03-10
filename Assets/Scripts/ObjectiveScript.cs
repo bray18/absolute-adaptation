@@ -7,7 +7,7 @@ public class ObjectiveScript : MonoBehaviour
 {
     public void GoToGame()
     {
-        SceneManager.LoadScene("Cutscene1");
+        SceneManager.LoadScene("BasicLevel");
     }
     // Start is called before the first frame update
     void Start()
