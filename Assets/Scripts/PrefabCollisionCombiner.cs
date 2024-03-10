@@ -16,25 +16,10 @@ public class PrefabCollisionCombiner : MonoBehaviour
 
             if (otherPrefabLevel != null)
             {
-                if (thisPrefabLevel.level == 7 || otherPrefabLevel.level == 7)
-                {
-                    StartCoroutine(HandleLevel7Touch());
-                }
-                else
-                {
-                    PrefabCombiner.CombinePrefabs(gameObject, collision.gameObject);
-                }
+                PrefabCombiner.CombinePrefabs(gameObject, collision.gameObject);
             }
         }
     }
-
-    private IEnumerator HandleLevel7Touch()
-    {
-        // wait for 1 second
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(sceneToSwitchTo);
-    }
-
     // Public method to set the scene to switch to
     public void SetSceneToSwitchTo(string newSceneName)
     {
