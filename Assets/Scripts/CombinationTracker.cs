@@ -10,11 +10,9 @@ public class CombinationTracker : MonoBehaviour
         {
             if (_instance == null)
             {
-                // Find existing instance in the scene
                 _instance = FindObjectOfType<CombinationTracker>();
                 if (_instance == null)
                 {
-                    // Create new instance if one doesn't already exist
                     var singletonObject = new GameObject("CombinationTracker");
                     _instance = singletonObject.AddComponent<CombinationTracker>();
                 }
@@ -24,8 +22,9 @@ public class CombinationTracker : MonoBehaviour
     }
 
     private Dictionary<int, int> levelCombinations = new Dictionary<int, int>();
+    public int animalLevelToTrack = 0; // Public variable to specify the animal level to track
+    private int animalLevelCount = 0; // Variable to count the specified level of animal
 
-    // Ensure the instance is unique (optional)
     private void Awake()
     {
         if (_instance == null)
@@ -50,7 +49,12 @@ public class CombinationTracker : MonoBehaviour
             levelCombinations[level] = 1;
         }
 
-        // Assuming ScoreManager follows a similar singleton pattern
+        // Increment animal level count if this level matches the one to track
+        if (level == animalLevelToTrack)
+        {
+            animalLevelCount++;
+        }
+
         ScoreManager.Instance.AddScoreForLevelCombination(level);
         CheckForGameEvents(level);
     }
@@ -58,6 +62,7 @@ public class CombinationTracker : MonoBehaviour
     public void ResetCombinations()
     {
         levelCombinations.Clear();
+        animalLevelCount = 0; // Reset the animal level count as well
     }
 
     private void CheckForGameEvents(int level)
@@ -71,5 +76,10 @@ public class CombinationTracker : MonoBehaviour
     public int GetCombinationCount(int level)
     {
         return levelCombinations.ContainsKey(level) ? levelCombinations[level] : 0;
+    }
+
+    public int GetAnimalLevelCount()
+    {
+        return animalLevelCount; // Method to access the animal level count
     }
 }

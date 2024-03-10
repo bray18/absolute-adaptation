@@ -13,7 +13,7 @@ public class PrefabCombiner : MonoBehaviour
         Rigidbody2D rbB = prefabB.GetComponent<Rigidbody2D>();
 
         // Check if both prefabs have levels and Rigidbody2D components
-        if (prefabALevel != null && prefabBLevel != null && rbA != null && rbB != null && prefabALevel.level == prefabBLevel.level && prefabALevel.level < 7)
+        if (prefabALevel != null && prefabBLevel != null && rbA != null && rbB != null && prefabALevel.level == prefabBLevel.level && prefabALevel.level != 7 && prefabALevel.level != 13)
         {
             //play random sound between Pop1, Pop2, Pop3, and Pop4 that are in the scene
             int randomSound = Random.Range(1, 5);
