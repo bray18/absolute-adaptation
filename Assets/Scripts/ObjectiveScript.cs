@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelSelectManager : MonoBehaviour
+public class ObjectiveScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public void StartLevel1() {
-        SceneManager.LoadScene("Objective");
+    public void GoToGame()
+    {
+        SceneManager.LoadScene("Cutscene1");
     }
+    // Start is called before the first frame update
     void Start()
     {
         

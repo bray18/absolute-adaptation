@@ -22,7 +22,7 @@ public class VideoPlayerScript : MonoBehaviour
     void Start()
     {
 
-        Debug.Log("in start");
+        //Debug.Log("in start");
         if (GameObject.FindWithTag("Music") != null)
         {
             audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
@@ -58,7 +58,6 @@ public class VideoPlayerScript : MonoBehaviour
         videoPlayer.waitForFirstFrame = true; // Wait for the first frame before starting playback
         videoPlayer.loopPointReached += EndReached; // Subscribe to the loopPointReached event
         videoPlayer.Play(); // Start playing the video
-        videoPlayer.gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 
     // Update is called once per frame
