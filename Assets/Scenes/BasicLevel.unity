@@ -507,7 +507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afe03fbe31af4951a251a5b916b5e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsDecreasePerClick: 4
   scoreText: {fileID: 584605845}
 --- !u!4 &432186475
 Transform:
@@ -1655,7 +1654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2847e672bf8b54cb18d55aee216d5ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTime: 3
+  countdownTime: 60
   countdownText: {fileID: 2027553665}
   alarmSound: {fileID: 670006382}
   warningTime: 10
