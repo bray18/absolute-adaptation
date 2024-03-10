@@ -7,26 +7,46 @@ using UnityEngine.Video; // Ensure this namespace is included for video function
 public class VideoPlayerScript : MonoBehaviour
 {
     public VideoClip videoClip; // Public variable for the video clip
-
     AudioSource audioSource;
+    
     
     // This method is called when the video reaches its end
     void EndReached(VideoPlayer vp) {
-        Debug.Log("End reached");
+        //GameObject.Destroy(vp);
         SceneManager.LoadScene("BasicLevel"); // Load the scene named "BasicLevel"
+       
     }
 
     void Start()
     {
-        audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
 
-        // Stop the audio using the Singleton pattern
-        Singleton.Instance.StopAudio(audioSource);
+        Debug.Log("in start");
+        if (GameObject.FindWithTag("Music") != null)
+        {
+            audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
+            
+            //audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
+            Debug.Log("audiosource defined");
+
+            // Stop the audio using the Singleton pattern
+            Singleton.Instance.StopAudio(audioSource);
+            
+        }
+
+        
+        
 
         // Find the Main Camera GameObject
         GameObject camera = GameObject.Find("Main Camera");
         // Add a VideoPlayer component to the Main Camera
         var videoPlayer = camera.AddComponent<VideoPlayer>();
+        //if()
+        //{
+        //    videoPlayer;
+        //} else
+        //{
+        //    videoPlayer = camera.GetComponent<VideoPlayer>;
+        //}
 
         // Assign the public video clip to the video player
         videoPlayer.clip = videoClip;
@@ -36,11 +56,14 @@ public class VideoPlayerScript : MonoBehaviour
         videoPlayer.waitForFirstFrame = true; // Wait for the first frame before starting playback
         videoPlayer.loopPointReached += EndReached; // Subscribe to the loopPointReached event
         videoPlayer.Play(); // Start playing the video
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         // This can be used for any frame-dependent logic
     }
 }
