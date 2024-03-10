@@ -65,7 +65,10 @@ public class LevelSelectManager : MonoBehaviour
     public void StartLevel7() {
         StartLevel(7, "Cutscene7");
     }
-
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
     // Update is not modified but included for completeness
     void Update()
     {

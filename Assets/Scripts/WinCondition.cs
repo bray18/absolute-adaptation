@@ -43,13 +43,14 @@ public class WinCondition : MonoBehaviour
         string currentSceneName = SceneManager.GetActiveScene().name;
         
         // Customize this logic based on your game's requirements
-        if (currentSceneName == "Level6")
-        {
-            sceneToSwitchTo = "Win6";
-        }
-        else if (currentSceneName == "Level7")
+        
+         if (currentSceneName == "Level7")
         {
             sceneToSwitchTo = "Win7";
+        }
+        else if (currentSceneName == "Level6")
+        {
+            sceneToSwitchTo = "Win6";
         }
         // Add more conditions as needed
         else

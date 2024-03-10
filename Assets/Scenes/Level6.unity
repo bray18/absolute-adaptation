@@ -1553,10 +1553,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33825da656c8d4c3aa4a1b208b5eeade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winLevel: 7
+  winLevel: 6
   winCombinationCount: 1
   winSceneName: Win6
   winDelay: 1
+  prefabCollisionCombiner: {fileID: 0}
 --- !u!1 &1915813305
 GameObject:
   m_ObjectHideFlags: 0
