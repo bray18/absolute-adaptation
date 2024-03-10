@@ -776,7 +776,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &543339070
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b4ebc67e509451a883082b5a4e0f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalLevelToTrack: 0
+  animalLevelToTrack: 6
 --- !u!114 &1810473915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,10 +1514,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33825da656c8d4c3aa4a1b208b5eeade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winLevel: 0
-  winCombinationCount: 0
-  winSceneName: 
-  winDelay: 0
+  winLevel: 6
+  winCombinationCount: 2
+  winSceneName: Win7
+  winDelay: 1
   prefabCollisionCombiner: {fileID: 1810473916}
 --- !u!114 &1810473916
 MonoBehaviour:
