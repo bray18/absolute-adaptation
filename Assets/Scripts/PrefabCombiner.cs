@@ -42,6 +42,9 @@ public class PrefabCombiner : MonoBehaviour
             // Destroy the old prefabs
             Destroy(prefabA);
             Destroy(prefabB);
+
+            //debug
+            Debug.Log("Combined prefabs of level " + prefabALevel.level + ": " + CombinationTracker.Instance.GetCombinationCount(prefabALevel.level) + " combinations");
         }
     }
 }

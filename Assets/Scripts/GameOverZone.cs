@@ -12,13 +12,13 @@ public class GameOverZone : MonoBehaviour
     void Update()
 {
     Collider2D[] objects = Physics2D.OverlapCircleAll(Vector2.zero, radius);
-    Debug.Log("Objects detected: " + objects.Length); // Debug how many objects are detected
+    //Debug.Log("Objects detected: " + objects.Length); // Debug how many objects are detected
 
     foreach (Collider2D obj in objects)
     {
         if (IsTargetObject(obj.gameObject))
         {
-            Debug.Log("Target object detected: " + obj.gameObject.name); // Confirm detection of target objects
+            //Debug.Log("Target object detected: " + obj.gameObject.name); // Confirm detection of target objects
 
             if (!objectsInZone.ContainsKey(obj.gameObject))
             {
@@ -26,7 +26,7 @@ public class GameOverZone : MonoBehaviour
             }
             else if (Time.time - objectsInZone[obj.gameObject] > timeToGameOver)
             {
-                Debug.Log("Game Over triggered by: " + obj.gameObject.name); // Confirm game over trigger
+                //Debug.Log("Game Over triggered by: " + obj.gameObject.name); // Confirm game over trigger
                 SceneManager.LoadScene("GameOver");
             }
             }
