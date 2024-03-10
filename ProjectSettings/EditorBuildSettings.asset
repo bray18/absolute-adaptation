@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelect.unity
     guid: 0b96e85088c2aff4fafc328028cb58dc
   - enabled: 1
-    path: Assets/Scenes/Cutscene1.unity
-    guid: 558087ee7683c9d4899cdfd04c39ed53
-  - enabled: 1
     path: Assets/Scenes/BasicLevel.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -23,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Objective.unity
     guid: 8baedd058799ae845bd4d3d9266fa161
+  - enabled: 1
+    path: Assets/Scenes/Cutscene1.unity
+    guid: 558087ee7683c9d4899cdfd04c39ed53
   - enabled: 1
     path: Assets/Scenes/Objective1.unity
     guid: 5f772c57664f94fc2889dab53b6d58d5
@@ -33,21 +33,39 @@ EditorBuildSettings:
     path: Assets/Scenes/Win1.unity
     guid: f50ce76cdc9264945893d36faf6f2325
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: 7e277fad2ff044f0bba3f0307bcff91d
-  - enabled: 1
     path: Assets/Scenes/Cutscene2.unity
     guid: 463fc4158b62f472882a2a86a030921c
   - enabled: 1
     path: Assets/Scenes/Objective2.unity
     guid: 026c181cb278a416782d3388d4891fab
   - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 7e277fad2ff044f0bba3f0307bcff91d
+  - enabled: 1
     path: Assets/Scenes/Win2.unity
     guid: 7bef77db7e8944c2c9339bd2d2e78b5a
+  - enabled: 1
+    path: Assets/Scenes/Cutscene3.unity
+    guid: 40b795e58572a40499834e732753f117
   - enabled: 1
     path: Assets/Scenes/Objective3.unity
     guid: 9505c3977d2b54b8ca0023c99e5bf2de
   - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 9cfefc239f927438eb67581c22c3c29b
+  - enabled: 1
     path: Assets/Scenes/Win3.unity
     guid: 931d9c5a59547438fad61aec9e49757f
+  - enabled: 1
+    path: Assets/Scenes/Cutscene4.unity
+    guid: ac0cb1021c629406a9ec6a7f5ea3232c
+  - enabled: 1
+    path: Assets/Scenes/Objective4.unity
+    guid: 6f412c72a38be4ef28e2092249bd33a2
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 8964f01516e934b44b76fa13aadb8789
+  - enabled: 1
+    path: Assets/Scenes/Win4.unity
+    guid: b63de0872183343349cbdbc7b62b844e
   m_configObjects: {}
